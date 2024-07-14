@@ -2,7 +2,7 @@
 
 BACKUP_DIR=~/dotfiles
 
-echo -e '\033[0;31mThis action will override the current $BACKUP_DIR contents. Ensure changes are committed.\033[0m'
+echo -e "\033[0;31mThis action will override the current "$BACKUP_DIR" contents. Ensure changes are committed.\033[0m"
 
 # git status
 echo -e '\033[0;46mRunning git status:\033[0m'
@@ -39,4 +39,4 @@ cp ~/.config/nvim/{init.lua,lazy-lock.json,.stylua.toml} $BACKUP_DIR/.config/nvi
 cp -R ~/.config/nvim/{doc,lua} $BACKUP_DIR/.config/nvim
 cp -R ~/.oh-my-zsh/custom $BACKUP_DIR/.oh-my-zsh
 
-echo -e '\033[0;32mFiles Backed up into $BACKUP_DIR\033[0m'
+echo -e "\033[0;32mFiles Backed up into $BACKUP_DIR\033[0m"

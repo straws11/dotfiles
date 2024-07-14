@@ -2,7 +2,7 @@
 
 BACKUP_DIR=~/dotfiles
 
-echo -e '\033[0;31mThis action will override your current configs with the current $BACKUP_DIR contents. Make sure your current configs are backed up / definitely outdated!\033[0m'
+echo -e "\033[0;31mThis action will override your current configs with the current $BACKUP_DIR contents. Make sure your current configs are backed up / definitely outdated!\033[0m"
 
 read -p "Overwrite local configs with those from $BACKUP_DIR (y/n): " confirmation
 
@@ -32,4 +32,4 @@ mkdir -p ~/.oh-my-zsh/
 cp -r $BACKUP_DIR/.config/nvim/* ~/.config/nvim/
 cp -r $BACKUP_DIR/.oh-my-zsh/* ~/.oh-my-zsh/
 
-echo -e '\033[0;32mDotfiles copied from $BACKUP_DIR\033[0m'
+echo -e "\033[0;32mDotfiles copied from $BACKUP_DIR\033[0m"
