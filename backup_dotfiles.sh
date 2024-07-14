@@ -1,17 +1,21 @@
 #!/bin/bash
 
 BACKUP_DIR=~/dotfiles
-DEFAULT_COMMIT_MSG='Updated dotfiles'
 
-git pull origin main
+echo -e '\033[0;31mThis action will override the current $BACKUP_DIR contents. Ensure changes are committed.\033[0m'
 
-echo -e '\033[0;32mType your commit message, leave blank for default\033[0m'
+# git status
+echo -e '\033[0;46mRunning git status:\033[0m'
+(cd ~/dotfiles && git status)
+echo
 
-read commit_message
+read -p "Copy files into $BACKUP_DIR (y/n): " confirmation
 
-if [ "$commit_message" == '' ]; then
-	commit_message=$DEFAULT_COMMIT_MSG
+if [ $confirmation != 'y' ]; then
+	echo 'Skipping backup process'
+	exit 1
 fi
+
 
 # all dotfiles files
 declare -a dot_files=(
@@ -35,8 +39,4 @@ cp ~/.config/nvim/{init.lua,lazy-lock.json,.stylua.toml} $BACKUP_DIR/.config/nvi
 cp -R ~/.config/nvim/{doc,lua} $BACKUP_DIR/.config/nvim
 cp -R ~/.oh-my-zsh/custom $BACKUP_DIR/.oh-my-zsh
 
-git add .
-git commit -m "$commit_message"
-git push origin main
-
-echo -e '\033[0;32mDotfiles backed up to repo\033[0m'
+echo -e '\033[0;32mFiles Backed up into $BACKUP_DIR\033[0m'
