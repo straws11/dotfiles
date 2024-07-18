@@ -13,7 +13,7 @@ config.color_scheme = "Material Darker (base16)"
 
 config.hide_tab_bar_if_only_one_tab = true
 config.font = wezterm.font("Monofur Nerd Font")
-config.font_size = 14
+config.font_size = 18
 config.window_padding = {
 	left = 0,
 	right = 0,
