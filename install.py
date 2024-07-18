@@ -125,7 +125,7 @@ def install_configs(config_items: list[ConfigItem]) -> None:
                 config_items.remove(item)  # fix install count in output message
                 continue
             execute_cmd(
-                'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+                'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended'
             )
             continue
 
