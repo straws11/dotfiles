@@ -23,7 +23,13 @@ OHMYZSH_INFO = "OhMyZsh\n\ta framework for ZSH (ZSH (an alternative to Bash) has
 NVIM_INFO = "NeoVim\n\ta refactored Vim, which allows for more customizability. It makes installing plugins and themes easy. Highly recommended."
 
 # RAW GITHUB CONTENT LINKS
+TMUX_LINK = "https://raw.githubusercontent.com/straws11/dotfiles/main/generic-configs/.tmux.conf"
+ZSH_LINK = (
+    "https://raw.githubusercontent.com/straws11/dotfiles/main/generic-configs/.zshrc"
+)
+WEZTERM_LINK = "https://raw.githubusercontent.com/straws11/dotfiles/main/generic-configs/.wezterm.lua"
 
+NVIM_LINK = "https://raw.githubusercontent.com/straws11/dotfiles/main/generic-configs/.config/nvim/init.lua"
 
 CHOICE_MENU: str = (
     "Please select one of the below:\n\t'l' - see information about all available configs\n\t'i' - start selecting configs for install\n\t'q' - quit the application\n"
@@ -39,6 +45,7 @@ class ConfigItem:
         name: str,
         path: str,
         info_msg: str,
+        link: str,
         file_type: ConfigType,
         extra: str = "",
     ) -> None:
@@ -46,6 +53,7 @@ class ConfigItem:
         self._file_type = file_type
         self._path = path
         self._info = info_msg
+        self._link = link
         self._extra_info = extra
 
     def get_type(self) -> ConfigType:
@@ -59,6 +67,9 @@ class ConfigItem:
 
     def get_info_msg(self) -> str:
         return self._info
+
+    def get_link(self) -> str:
+        return self._link
 
     def get_extra(self) -> str:
         return self._extra_info
@@ -127,6 +138,7 @@ def install_configs(config_items: list[ConfigItem]) -> None:
             execute_cmd(
                 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended'
             )
+            print(f"Installed {item.get_name()}'s config")
             continue
 
         path = item.get_path()
@@ -134,25 +146,28 @@ def install_configs(config_items: list[ConfigItem]) -> None:
         # TODO: move this logic into the ConfigItem, some sort of path processing methods
         if path.count("/") > 1:  # only ~/ should be in the path
             execute_cmd("mkdir -p " + path[: path.rindex("/")])
-        execute_cmd(
-            f"cp {"-r" if item.get_type() == ConfigType.DIR else ""} ./{path[2:]} {path}"
-        )
+        execute_cmd(f"curl {item.get_link()} -o {path}")
         print(f"Installed {item.get_name()}'s config")
 
 
 def create_items() -> list[ConfigItem]:
     """Init all config items that I support"""
     return [
-        ConfigItem("NeoVim", "~/.config/nvim", NVIM_INFO, ConfigType.DIR),
+        ConfigItem(
+            "NeoVim", "~/.config/nvim/init.lua", NVIM_INFO, NVIM_LINK, ConfigType.FILE
+        ),
         ConfigItem(
             "OhMyZsh",
             "~/.oh-my-zsh",
             OHMYZSH_INFO,
+            "",
             ConfigType.DIR,
             extra="This will install the default OhMyZsh framework for you",
         ),
-        ConfigItem("tmux", "~/.tmux.conf", TMUX_INFO, ConfigType.FILE),
-        ConfigItem("WezTerm", "~/.wezterm.lua", WEZTERM_INFO, ConfigType.FILE),
+        ConfigItem("tmux", "~/.tmux.conf", TMUX_INFO, TMUX_LINK, ConfigType.FILE),
+        ConfigItem(
+            "WezTerm", "~/.wezterm.lua", WEZTERM_INFO, WEZTERM_LINK, ConfigType.FILE
+        ),
     ]
 
 
