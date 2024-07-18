@@ -1,5 +1,6 @@
 import os
 import sys
+import subprocess
 from enum import Enum
 
 
@@ -18,9 +19,11 @@ class ConfigType(Enum):
 # INFO MESSAGE CONSTS
 TMUX_INFO = "Tmux\n\ta terminal multiplexer. It allows you to open multiple panes & windows (like tabs) in a single terminal application. Useful if you want to keep (neo)vim open and be able to run code or execute other terminal commands."
 WEZTERM_INFO = 'Wezterm\n\ta terminal application. It is an alternative to the "Terminal" application that you are used to. You can safely ignore this one and keep using Terminal if you want to.'
-ZSH_INFO = "ZSH (Z-Shell)\n\tan alternative to Bash. Highly recommended to use OhMyZsh with this."
-OHMYZSH_INFO = "OhMyZsh\n\ta framework for ZSH (ZSH has to be installed). It allows you to pick some nice preset themes and has plugins that are straightforward to enable."
+OHMYZSH_INFO = "OhMyZsh\n\ta framework for ZSH (ZSH (an alternative to Bash) has to be installed). It allows you to pick some nice preset themes and has plugins that are straightforward to enable."
 NVIM_INFO = "NeoVim\n\ta refactored Vim, which allows for more customizability. It makes installing plugins and themes easy. Highly recommended."
+
+# RAW GITHUB CONTENT LINKS
+
 
 CHOICE_MENU: str = (
     "Please select one of the below:\n\t'l' - see information about all available configs\n\t'i' - start selecting configs for install\n\t'q' - quit the application\n"
@@ -32,12 +35,18 @@ CHOICE_MENU: str = (
 
 class ConfigItem:
     def __init__(
-        self, name: str, path: str, info_msg: str, file_type: ConfigType
+        self,
+        name: str,
+        path: str,
+        info_msg: str,
+        file_type: ConfigType,
+        extra: str = "",
     ) -> None:
         self._name = name
         self._file_type = file_type
         self._path = path
         self._info = info_msg
+        self._extra_info = extra
 
     def get_type(self) -> ConfigType:
         return self._file_type
@@ -50,6 +59,9 @@ class ConfigItem:
 
     def get_info_msg(self) -> str:
         return self._info
+
+    def get_extra(self) -> str:
+        return self._extra_info
 
 
 def main():
@@ -69,10 +81,8 @@ def main():
 
 
 def list_config_infos() -> None:
-    """Lists all configs's info"""
-    print(
-        f"{NVIM_INFO}\n\n{ZSH_INFO}\n\n{OHMYZSH_INFO}\n\n{TMUX_INFO}\n\n{WEZTERM_INFO}\n\n"
-    )
+    """Lists all configs' info"""
+    print(f"{NVIM_INFO}\n\n{OHMYZSH_INFO}\n\n{TMUX_INFO}\n\n{WEZTERM_INFO}\n\n")
 
 
 def install_process(items: list[ConfigItem]) -> None:
@@ -104,13 +114,28 @@ def execute_cmd(command: str) -> None:
 def install_configs(config_items: list[ConfigItem]) -> None:
     """Copies all user-selected config files from this repo into their respective directories"""
     for item in config_items:
+
+        # ohmyzsh has different script
+        if item.get_name() == "OhMyZsh":
+            process = subprocess.Popen("which curl", stdout=subprocess.PIPE, shell=True)
+            if process.returncode:  # if failed
+                print(
+                    "Please install the 'curl' package to be able to install OhMyZsh."
+                )
+                config_items.remove(item)  # fix install count in output message
+                continue
+            execute_cmd(
+                'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+            )
+            continue
+
         path = item.get_path()
         # create parent dirs, if necessary
         # TODO: move this logic into the ConfigItem, some sort of path processing methods
         if path.count("/") > 1:  # only ~/ should be in the path
-            execute_cmd("mkdir -p " + "~/testy" + path[: path.rindex("/")][1:])
+            execute_cmd("mkdir -p " + path[: path.rindex("/")])
         execute_cmd(
-            f"cp {"-r" if item.get_type() == ConfigType.DIR else ""} ./{path[2:]} ~/testy/{path[2:]}"
+            f"cp {"-r" if item.get_type() == ConfigType.DIR else ""} ./{path[2:]} {path}"
         )
         print(f"Installed {item.get_name()}'s config")
 
@@ -118,9 +143,14 @@ def install_configs(config_items: list[ConfigItem]) -> None:
 def create_items() -> list[ConfigItem]:
     """Init all config items that I support"""
     return [
-        ConfigItem("NeoVim", "~/.config/nvim", OHMYZSH_INFO, ConfigType.DIR),
-        ConfigItem("Z-Shell", "~/.zshrc", ZSH_INFO, ConfigType.FILE),
-        ConfigItem("OhMyZsh", "~/.oh-my-zsh", OHMYZSH_INFO, ConfigType.DIR),
+        ConfigItem("NeoVim", "~/.config/nvim", NVIM_INFO, ConfigType.DIR),
+        ConfigItem(
+            "OhMyZsh",
+            "~/.oh-my-zsh",
+            OHMYZSH_INFO,
+            ConfigType.DIR,
+            extra="This will install the default OhMyZsh framework for you",
+        ),
         ConfigItem("tmux", "~/.tmux.conf", TMUX_INFO, ConfigType.FILE),
         ConfigItem("WezTerm", "~/.wezterm.lua", WEZTERM_INFO, ConfigType.FILE),
     ]
@@ -132,7 +162,7 @@ def filter_items(items: list[ConfigItem]) -> list[ConfigItem]:
     for item in items:
         while True:
             print(
-                f"Would you like to install {item.get_name()}'s configuration? (y/n): ",
+                f"Would you like to install {item.get_name()}'s configuration? {item.get_extra()}(y/n): ",
                 end="",
             )
             confirmation = input().lower()
