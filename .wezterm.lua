@@ -21,6 +21,11 @@ config.window_padding = {
 	bottom = 0,
 }
 
+wezterm.on("gui-startup", function()
+	local tab, pane, window = wezterm.mux.spawn_window({})
+	window:gui_window():maximize()
+end)
+
 local act = wezterm.action
 
 config.keys = {

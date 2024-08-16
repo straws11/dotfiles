@@ -13,7 +13,7 @@ ZSH_THEME="agnoster"
 plugins=(git z history web-search tmux)
 
 # Start TMUX by default
-#ZSH_TMUX_AUTOSTART="true"
+# ZSH_TMUX_AUTOSTART="true"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -56,5 +56,8 @@ export NVM_DIR="$HOME/.nvm"
 export FLYCTL_INSTALL="/home/straws11/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
-#eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 #export PATH="$HOME/.cargo/bin"
+
+# simplc CS244 project
+complete -f -X '!*.simpl' simplc
