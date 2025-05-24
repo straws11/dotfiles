@@ -1,0 +1,79 @@
+[2025-05-24 16:53:40.849] [info] Using configuration file /etc/xdg/waybar/config.jsonc
+[2025-05-24 16:53:40.850] [info] Unable to receive desktop appearance: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.portal.Settings” on object at path /org/freedesktop/portal/desktop
+[2025-05-24 16:53:40.850] [info] Using CSS file /etc/xdg/waybar/style.css
+[2025-05-24 16:53:40.854] [warning] module sway/workspaces: Disabling module "sway/workspaces", Socket path is empty
+[2025-05-24 16:53:40.856] [warning] module sway/mode: Disabling module "sway/mode", Socket path is empty
+[2025-05-24 16:53:40.858] [warning] module sway/scratchpad: Disabling module "sway/scratchpad", Socket path is empty
+[2025-05-24 16:53:40.862] [error] media stopped unexpectedly, is it endless?
+[2025-05-24 16:53:40.862] [warning] module sway/window: Disabling module "sway/window", Socket path is empty
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/event21 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/event20 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/event19 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/event18 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/event17 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/mouse2 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/mouse1 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/mouse0 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/mice (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/event16 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/event15 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/event14 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/event13 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/event12 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/event11 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/event10 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/event9 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/event8 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/event7 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/event6 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/event5 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/event4 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/event3 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/event2 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/event1 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.864] [warning] Can't open /dev/input/event0 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.865] [warning] module keyboard-state: Disabling module "keyboard-state", Failed to find keyboard device: EACCES Permission denied
+[2025-05-24 16:53:40.866] [warning] module sway/language: Disabling module "sway/language", Socket path is empty
+[2025-05-24 16:53:40.866] [warning] No battery named BAT2
+[2025-05-24 16:53:40.867] [warning] Error while creating the menu : Failed to expand file: $HOME/.config/waybar/power_menu.xml. Menu popup not activated.
+[2025-05-24 16:53:40.880] [warning] module sway/workspaces: Disabling module "sway/workspaces", Socket path is empty
+[2025-05-24 16:53:40.882] [warning] module sway/mode: Disabling module "sway/mode", Socket path is empty
+[2025-05-24 16:53:40.884] [warning] module sway/scratchpad: Disabling module "sway/scratchpad", Socket path is empty
+[2025-05-24 16:53:40.889] [warning] module sway/window: Disabling module "sway/window", Socket path is empty
+[2025-05-24 16:53:40.890] [error] media stopped unexpectedly, is it endless?
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/event21 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/event20 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/event19 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/event18 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/event17 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/mouse2 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/mouse1 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/mouse0 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/mice (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/event16 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/event15 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/event14 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/event13 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/event12 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/event11 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/event10 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/event9 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/event8 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/event7 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/event6 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/event5 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/event4 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/event3 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/event2 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/event1 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] Can't open /dev/input/event0 (are you in the input group?): EACCES Permission denied
+[2025-05-24 16:53:40.892] [warning] module keyboard-state: Disabling module "keyboard-state", Failed to find keyboard device: EACCES Permission denied
+[2025-05-24 16:53:40.895] [warning] module sway/language: Disabling module "sway/language", Socket path is empty
+[2025-05-24 16:53:40.895] [warning] No battery named BAT2
+[2025-05-24 16:53:40.896] [warning] Error while creating the menu : Failed to expand file: $HOME/.config/waybar/power_menu.xml. Menu popup not activated.
+[2025-05-24 16:53:41.005] [error] Host: GDBus.Error:org.freedesktop.DBus.Error.UnknownObject: No such object path '/StatusNotifierWatcher'
+[2025-05-24 16:53:41.005] [error] Host: GDBus.Error:org.freedesktop.DBus.Error.UnknownObject: No such object path '/StatusNotifierWatcher'
+[2025-05-24 16:53:41.130] [info] Bar configured (width: 1280, height: 30) for output: eDP-1
+[2025-05-24 16:53:41.130] [info] Bar configured (width: 1920, height: 30) for output: HDMI-A-1
+[2025-05-24 16:53:41.134] [info] Bar configured (width: 1920, height: 30) for output: HDMI-A-1
+[2025-05-24 16:53:46.089] [info] Quitting.

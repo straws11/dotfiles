@@ -1,3 +1,6 @@
 old/*
-.git
-.gitignore
+\.git
+\.gitignore
+
+^/README.*
+^/LICENSE.*
